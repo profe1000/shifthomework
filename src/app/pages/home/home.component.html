@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<div class="w3-content w3-margin-top w3-margin-bottom">
+
+    <app-profile></app-profile>
+
+
+<div class="w3-margin-top w3-margin-bottom">
+
+    <div class="w3-container w3-margin-bottom">
+      <img src="assets/images/power-energy.gif" style="width:40px" />
+      <b class="w3-bottombar w3-border-blue">  My Daily Power Usage </b>
+    </div>
+
+    <div class="w3-container w3-margin-bottom">
+  
+    <div class="w3-col w3-right" style="width:100px">
+     <a (click)="startsearch($event)" style="width:100%" class="w3-btn w3-yellow w3-round w3-text-blue"> Search </a>
+    </div>
+
+
+    <div class="w3-rest">
+        <input  (change)="startsearch($event)" class="w3-input w3-round w3-border" placeholder="Enter Resident ID Here" />
+    </div>
+
+
+   </div>
+   
+</div>
+
+
+<app-location #appcont1></app-location>
+
+
+</div>
+
+
+<app-footer></app-footer>

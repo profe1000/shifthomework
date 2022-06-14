@@ -1,0 +1,70 @@
+<!--No Residence ID Selected-->
+<div *ngIf=" datastatus==-2" class="w3-white w3-border w3-round w3-border-blue  w3-padding box">
+
+    <h3> Please Select A Residence ID </h3>
+    <p> To know your power usage </p>
+
+</div>
+
+<!--Data is not loading-->
+<div *ngIf=" datastatus==-1" class="w3-white w3-border w3-border-blue  w3-padding box">
+
+    <img src="assets/images/loading.gif" class="w3-round" style="width:60px" />  Loading Data...
+
+</div>
+
+<!--Data Has loaded-->
+<div *ngIf="datastatus==200"  class=" w3-white w3-border w3-border-blue w3-round w3-padding box">
+
+    <img src="assets/images/iconaddress.png" style="width:40px" /> Address :
+    
+   {{data.body.data["attributes"]["address_1"]}} 
+
+   <hr />
+
+
+   
+    <img src="assets/images/iconenergy.png" style="width:40px" /> Total Energy Usage Today is
+    
+   {{data.body.data["attributes"]["usage_data"]["gen_usage_today"]  + data.body.data["attributes"]["usage_data"]["grid_usage_today"]  }} kW
+
+   <hr />
+
+   Breakdown of Usage <br /><br />
+
+   <img src="assets/images/icongen.png" style="width:40px" /> Gen Usage =   {{data.body.data["attributes"]["usage_data"]["gen_usage_today"] }} kW
+
+   <br /><br />
+
+   <img src="assets/images/icontransformer.png" style="width:40px" />  Grid Usage =   {{data.body.data["attributes"]["usage_data"]["grid_usage_today"] }} kW
+
+</div>
+
+
+<!--No Internet Connection-->
+<div *ngIf=" datastatus==0"  class=" w3-white w3-round w3-border w3-border-blue w3-round  w3-padding box">
+
+    No Internet Connection
+
+    <br />   <br />
+
+    <a (click)="getvalue()" style="width:150px" class="w3-btn w3-yellow w3-round w3-round w3-text-blue"> Retry </a>
+
+
+</div>
+
+<!--Other Error-->
+<div *ngIf=" datastatus > 200"  class="w3-white w3-round w3-border w3-border-blue  w3-padding box">
+
+   An Error Occured : {{data.statusText}}
+
+   <br /> <br /> 
+
+   Please Try another Residence ID it seems this resisdent ID does not exist or you are not authorised to see its details.
+
+   <br />   <br />
+
+   <a (click)="getvalue()" style="width:150px" class="w3-btn w3-yellow w3-round w3-text-blue"> Retry </a>
+
+
+</div>
