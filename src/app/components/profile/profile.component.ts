@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
   async getvalue(){
     this.datastatus=-1;
     this.apiservice.getusers.subscribe((val)=>{
-      console.log(val)
+      //console.log(val)
       this.data = val;
       this.datastatus =  this.data["status"]
     })
