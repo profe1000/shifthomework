@@ -19,9 +19,11 @@ export class HomeComponent implements OnInit {
   
   startsearch($event:any){
     if($event.target.value ==""){
+      this.residentid="";
       return;
     }
     if(isNaN($event.target.value )){
+      this.residentid="";
       alert("Please Enter a valid Resisdent ID");
       return;
     }
