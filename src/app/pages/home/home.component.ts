@@ -8,6 +8,7 @@ import { ApiservicesService } from 'src/app/services/apiservices.service';
 })
 export class HomeComponent implements OnInit {
   @ViewChild('appcont1',{"static":false}) appcont1: any;
+  residentid='';
 
   constructor(public apiservice:ApiservicesService) {
    }
@@ -24,7 +25,18 @@ export class HomeComponent implements OnInit {
       alert("Please Enter a valid Resisdent ID");
       return;
     }
-    this.apiservice.residenceid =$event.target.value
+    this.residentid=$event.target.value;
+    this.apiservice.residenceid = this.residentid;
+    this.appcont1.getvalue();
+  }
+
+  startsearchbtn()
+  {
+    if(this.residentid==''){
+      alert("Enter A resident ID");
+      return;
+    }
+    this.apiservice.residenceid =this.residentid;
     this.appcont1.getvalue();
   }
 

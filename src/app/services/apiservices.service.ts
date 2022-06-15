@@ -29,8 +29,10 @@ export class ApiservicesService {
     .get(this.userendpoint,{headers,observe: 'response'})
     .subscribe(async res => {
       observer.next(res)
+      observer.complete()
      }, (err) => {
       observer.next(err)
+      observer.complete()
     });
 
   })
