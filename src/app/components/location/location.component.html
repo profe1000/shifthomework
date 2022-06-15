@@ -38,6 +38,28 @@
 
    <img src="assets/images/icontransformer.png" style="width:40px" />  Grid Usage =   {{data.body.data["attributes"]["usage_data"]["grid_usage_today"] }} kW
 
+
+   <hr />
+
+   Devices Included in this Household <br /><br />
+
+   <div class="w3-responsive">
+    <table class="w3-table-all">
+        <tr>
+            <th>Device ID</th>
+            <th>Device Type</th>
+            <th>Online Status</th>
+        </tr>
+        <tr *ngFor="let i of data.body.included; let j = index;">
+            <td>{{i.id}}</td>
+            <td>{{i.type}}</td>
+            <td>{{i.attributes?.online || 'false'}}</td>
+        </tr>
+    </table>
+  </div>
+
+ 
+
 </div>
 
 
