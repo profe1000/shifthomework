@@ -46,14 +46,17 @@
    <div class="w3-responsive">
     <table class="w3-table-all">
         <tr>
+            <th>S/N</th>
             <th>Device ID</th>
             <th>Device Type</th>
             <th>Online Status</th>
         </tr>
+
         <tr *ngFor="let i of data.body.included; let j = index;">
+            <td>{{j+1}}</td>
             <td>{{i.id}}</td>
             <td>{{i.type}}</td>
-            <td>{{i.attributes?.online || 'false'}}</td>
+            <td>{{i.attributes?.online || false}}</td>
         </tr>
     </table>
   </div>
