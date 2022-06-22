@@ -34,7 +34,7 @@ The App has one service which is apiservice which helps to connect to our backen
 
 The api services has two api which are getusers and getresidence.
 
-I used and Observable to get data from the api and not promise.
+I used an Observable to get data from the api and not promise.
 
 ## Routing
 
