@@ -23,12 +23,17 @@
 
 
     <div class="w3-rest">
-        <input  (change)="startsearch($event)" class="w3-input w3-round w3-border" placeholder="Enter Resident ID Here" />
+        <input [(ngModel)]="data"  (ngModelChange)="typesearch()"  class="w3-input w3-round w3-border" placeholder="Enter Resident ID Here" />
     </div>
 
 
    </div>
+
+   <div>
+    
+   </div>
    
+
 </div>
 
 

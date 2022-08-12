@@ -16,7 +16,7 @@ export class LocationComponent implements OnInit {
 
 
   constructor(public apiservice:ApiservicesService) {
-    
+  
   }
 
  ngOnInit(): void {
@@ -27,9 +27,16 @@ export class LocationComponent implements OnInit {
   this.datastatus=-1;
    this.apiservice.getresidence.subscribe((val)=>{
      //console.log(val)
+    this.apiservice.loadingdata=false;
      this.data = val;
      this.datastatus =  this.data["status"]
    })
+
+
+   /*this.apiservice.getlocationalt("100").subscribe((val)=>{
+     console.log(val)
+   })
+   */
  }
 
 }

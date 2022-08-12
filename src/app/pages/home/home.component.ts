@@ -11,6 +11,9 @@ export class HomeComponent implements OnInit {
   //Use to get the reference of the location component
   @ViewChild('appcont1',{"static":false}) appcont1: any;
   residentid='';
+  data:any;
+
+
 
   constructor(public apiservice:ApiservicesService) {
    }
@@ -51,6 +54,29 @@ export class HomeComponent implements OnInit {
    
     this.apiservice.residenceid =this.residentid;
     this.appcont1.getvalue();
+  }
+
+  
+  search(){
+    this.appcont1.getvalue()
+    this.apiservice.loadingdata=false;
+  }
+
+
+  typesearch(){
+
+    if(!this.apiservice.loadingdata){
+      this.apiservice.loadingdata=true
+      console.log(this.data)
+      this.residentid=this.data;
+      this.apiservice.residenceid = this.data;
+      console.log(this.apiservice.residenceid)
+      this.appcont1.getvalue()
+      //setTimeout(this.search,1000)
+    }
+    
+
+    //this.appcont1.getvalue();
   }
 
 }
