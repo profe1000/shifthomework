@@ -50,6 +50,10 @@ export class HomeComponent implements OnInit {
     this.apiservice.getuserb(this.newuserdetailsb);
   }
 
+  testclick() {
+    alert(1);
+  }
+
   ngOnInit(): void {}
 
   //This is used to Start the search when you leave the search box
