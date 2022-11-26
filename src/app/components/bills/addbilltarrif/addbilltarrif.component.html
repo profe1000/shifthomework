@@ -1,0 +1,114 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+  <div class="w3-col">
+    <div class="w3-col">
+      <div class="w3-col l6 s6 m6 w3-padding w3-round">
+        <select
+          (change)="changeTarrifsource()"
+          formControlName="tariffType"
+          class="w3-select w3-border w3-round"
+        >
+          <option
+            *ngFor="let option of structureOptions"
+            value="{{ option.value }}"
+          >
+            {{ option.label }}
+          </option>
+        </select>
+      </div>
+
+      <div
+        *ngIf="isSourceOfUseTariffType()"
+        class="w3-col l6 s6 m6 w3-padding w3-round"
+      >
+        <select
+          (change)="changeSourceofUse()"
+          formControlName="sourceOfUseTemplate"
+          placeholder="Source of use templete"
+          class="w3-select w3-border w3-round"
+        >
+          <option
+            *ngFor="let option of sourceOfUseTemplates; let j = index"
+            value="{{ j }}"
+          >
+            {{ option.title }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="w3-padding w3-col">
+      <ng-container *ngIf="isSourceOfUseTariffType(); else standardTariffTpl">
+        <div class="w3-col w3-padding w3-round w3-margin-top w3-border">
+          <p>Source of Use Container via Form Group</p>
+          <div formGroupName="energySourceTariffs">
+            <div
+              *ngFor="
+                let i of energySourceTariffs.controls | keyvalue;
+                let j = index
+              "
+            >
+              <div class="w3-col" style="margin-bottom: 10px">
+                Number {{ j }} <label>{{ i.key }}</label> <br />
+                Rates :
+                <input
+                  type="text"
+                  [formControl]="energySourceTariffs.get(i.key)"
+                />
+                <button>Action</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-col w3-padding w3-round w3-margin-top w3-border">
+          <p>Source of Use Container via Form Array</p>
+          <div class="w3-col" formArrayName="energySourceTariffsArray">
+            <div
+              *ngFor="
+                let i of energySourceTariffsarrays.controls;
+                let j = index
+              "
+            >
+              <div
+                class="w3-col"
+                [formGroupName]="j"
+                style="margin-bottom: 10px"
+              >
+                Number {{ j }}
+                <label>{{ this.activeEnergysource.children[j].title }}</label>
+                <br />
+                Rates :
+                <input type="text" formControlName="rates" />
+
+                <button>Action</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #standardTariffTpl>
+        <div formGroupName="tariffValues">
+          <p>
+            This is the fixed rate that your residents will pay per kWh used.
+          </p>
+          <div class="">
+            <input formControlName="rate" class="w3-col w3-margin-bottom" />
+            <br />
+          </div>
+        </div>
+      </ng-template>
+    </div>
+
+    <div class="w3-padding w3-col">
+      <p>Minimum Account Balance</p>
+      <div class="">
+        <input
+          formControlName="minimumAccountBalanceCents"
+          class="w3-col w3-margin-bottom"
+        />
+        <br />
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
