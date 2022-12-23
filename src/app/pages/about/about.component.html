@@ -1,1 +1,109 @@
-<p>about works!</p>
+<div class="w3-col w3-pale-yellow">
+  <div class="w3-content">
+    <div class="w3-card w3-col">
+      <div
+        style="
+          background-image: url(assets/images/yellowbg1.webp);
+          background-position: center;
+          background-attachment: fixed;
+          background-size: cover;
+          min-height: 400px;
+        "
+        class="w3-col w3-yellow"
+      >
+        <div class="w3-col l6 s12 m6 w3-center" style="padding: 5px">
+          <img
+            src="assets/images/mypicture.png"
+            class="w3-card w3-round w3-margin-top w3-border-blue"
+            style="max-width: 400px; width: 100%"
+          />
+        </div>
+
+        <div class="w3-col l6 s12 m6 w3-padding" style="padding: 5px">
+          <h2>About me</h2>
+          <p>
+            I am an IT personnel with holistic knowledge of software
+            development, web development and App development. I am also
+            experienced in coordinating various IT related project
+          </p>
+
+          <a class="w3-btn w3-blue w3-round w3-col w3-margin-bottom">
+            DownLoad Resume
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="w3-col w3-blue"
+        style="
+          background-image: url(assets/images/bluebg2.jpg);
+          min-height: 500px;
+          background-position: center;
+          background-repeat: repeat-y;
+          background-attachment: fixed;
+          background-size: cover;
+          padding: 20px;
+        "
+      >
+        <div class="w3-center">
+          <h2>Job handles</h2>
+          <p>Below is the higlight of some of the Job I have Handle</p>
+        </div>
+
+        <div
+          *ngFor="let job of jobs; index as j"
+          class="w3-col l4 s12 m6"
+          style="padding: 5px"
+        >
+          <div
+            class="w3-col w3-card w3-border-orange w3-blue w3-round-xlarge w3-margin-bottom"
+            style="min-height: 300px"
+          >
+            <img
+              src="assets/images/aboutskill.jpg"
+              style="width: 100%"
+              class="w3-round-xlarge"
+            />
+
+            <div class="w3-padding">
+              <h3 class="w3-center">Titan Digital <br /></h3>
+              <p>sjjssjjssjsj</p>
+
+              <a class="w3-btn w3-small w3-orange w3-round w3-margin-bottom">
+                See More...</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="w3-col w3-pale-yellow"
+        style="
+          background-image: url(assets/images/yellowbg1.webp);
+          background-position: center;
+          background-attachment: fixed;
+          background-size: cover;
+          min-height: 400px;
+        "
+      >
+        <div class="w3-col l6 s12 m6 w3-padding" style="padding: 5px">
+          <h2>My Skills</h2>
+          <p>Below are some of the list of skills I can deliver</p>
+
+          <div   *ngFor="let skill of skills; index as j"  class="w3-blue w3-round-large w3-padding w3-margin-bottom">
+            Asp.net 5 Years Experience
+          </div>
+        </div>
+
+        <div class="w3-col l6 s12 m6 w3-center" style="padding: 5px">
+          <img
+            src="assets/images/aboutskillb.jpg"
+            class="w3-round w3-card"
+            style="max-width: 400px; width: 100%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
